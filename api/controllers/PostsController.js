@@ -23,8 +23,11 @@ module.exports ={
         //var gogogo = db.find({featured:true})
         //console.log(rawMongoCollection)
         //const ads = await Post.find().populate('user')
+
         const ads = await Ad.find({featured:true}).populate('company')
              //res.send(ads)
+
+             console.log(ads[0].company.id)
              res.send(ads)
 
 

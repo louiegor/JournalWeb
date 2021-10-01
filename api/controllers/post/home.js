@@ -3,11 +3,12 @@
 module.exports = async function(req, res){
     console.log("This route shows home page of posts")
     const userId = req.session.userId
-    const allPosts = await Post.find({user: userId})
+    const allPosts = await Ad.find().populate('company')
     console.log(userId)
-
-    res.view('pages/home',
-        {allPosts}
     
-    );
+
+    res.view('pages/home',{allPosts});
+
 }
+
+{/* <div><%= p.company.name %></div>  */}

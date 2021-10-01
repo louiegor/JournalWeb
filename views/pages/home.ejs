@@ -27,6 +27,12 @@
             }
             
 
+        };
+
+        async function temp(){
+
+            console.log(allPosts)
+
         }
     </script>
 
@@ -40,18 +46,28 @@
             <button type="submit">Submit</button>
 
         </form>
+        
 
         <div>
             <% allPosts.forEach(p=>{ %>
                 <div class='post-container'>
-                    <div><%= p.title %></div>
-                    <div><%= p.body %></div>
+                    
+                    <div><%= p.createdAt %></div>
+                    <div><%= p.id %></div>
+                    <div><%= p.company.name %></div>
                     <button id='<%= p.id %>' onclick="handleDeletePost(event)">Delete</button>
-                </div>
+                    <button id='<%= p.id %>' onclick="temp(event)">testing</button>
+                </div> 
 
             <%})%>
 
             
         </div>
+        <h1>For testing json stringify</h1>
+        <div>
+            <%= JSON.stringify(allPosts) %>
+        </div>
     </body>
 </html>
+
+
