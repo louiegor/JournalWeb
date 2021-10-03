@@ -55,6 +55,8 @@
                     <div><%= p.createdAt %></div>
                     <div><%= p.id %></div>
                     <div><%= p.company.name %></div>
+                    <div><img class="companylogo" src ="<%= p.company.logo %>"> </div>
+
                     <button id='<%= p.id %>' onclick="handleDeletePost(event)">Delete</button>
                     <button id='<%= p.id %>' onclick="temp(event)">testing</button>
                 </div> 
