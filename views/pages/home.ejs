@@ -37,7 +37,7 @@
     </script>
 
     <body style='background-color: lightgrey;'>
-        This is a list of our posts
+        
 
         <form class="post-container" action="/post" method="POST">
             <div> Create Post</div>
@@ -55,7 +55,7 @@
                     <div><%= p.createdAt %></div>
                     <div><%= p.id %></div>
                     <div><%= p.company.name %></div>
-                    <div><img class="companylogo" src ="<%= p.company.logo %>"> </div>
+                    <div><img class="companylogo" style="height:130px; width: auto;" src ="<%= p.company.logo %>"> </div>
 
                     <button id='<%= p.id %>' onclick="handleDeletePost(event)">Delete</button>
                     <button id='<%= p.id %>' onclick="temp(event)">testing</button>
