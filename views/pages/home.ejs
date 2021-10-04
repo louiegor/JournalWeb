@@ -36,8 +36,7 @@
         }
     </script>
 
-    <body style='background-color: lightgrey;'>
-        
+    <body >        <!-- style='background-color: lightgrey;' -->
 
         <form class="post-container" action="/post" method="POST">
             <div> Create Post</div>
@@ -48,7 +47,7 @@
         </form>
         
 
-        <div>
+        <!-- <div>
             <% allPosts.forEach(p=>{ %>
                 <div class='post-container'>
                     
@@ -68,7 +67,36 @@
         <h1>For testing json stringify</h1>
         <div>
             <%= JSON.stringify(allPosts) %>
-        </div>
+        </div> -->
+
+    <h1 class="display-4">Company</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+            
+                <th>Created On</th>
+                <th>Comapany Name</th>
+                <th>Logo   </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+                  <% allPosts.forEach(function(p){%>
+                <tr>
+                    <td>                    <%= p.createdAt%>                </td>
+                    <td>             <%= p.company.name%>     </td>
+                    <td><img class="companylogo" style="height:130px; width: auto;" src ="<%= p.company.logo %>"> </td>
+                    <td>
+                        <button id='<%= p.id %>' onclick="handleDeletePost(event)">Delete</button>
+                    </td>
+                </tr>
+            <%})%>
+            
+        </tbody>
+
+    </table>
+
     </body>
 </html>
 
