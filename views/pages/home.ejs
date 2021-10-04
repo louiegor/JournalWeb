@@ -39,9 +39,13 @@
     <body >        <!-- style='background-color: lightgrey;' -->
 
         <form class="post-container" action="/post" method="POST">
-            <div> Create Post</div>
-            <input name="title" type="text" placeholder="Post Title">
-            <input name="postBody" type="text" placeholder="Post Body">
+            <div> Create New Company</div>
+            <!-- <input name="title" type="text" placeholder="Post Title">
+            <input name="postBody" type="text" placeholder="Post Body"> -->
+            <input name="embedCode" type="text" placeholder="Embed Code">
+            <input name="company" type="text" placeholder="Company">
+            <input name="title" type="text" placeholder="Title">
+
             <button type="submit">Submit</button>
 
         </form>
@@ -69,14 +73,13 @@
             <%= JSON.stringify(allPosts) %>
         </div> -->
 
-    <h1 class="display-4">Company</h1>
+    <h1 class="display-4">Ad</h1>
 
     <table class="table table-striped">
         <thead>
             <tr>
-            
-                <th>Created On</th>
-                <th>Comapany Name</th>
+                <th>Comapany </th>
+                <th>Embed Code</th>                
                 <th>Logo   </th>
                 <th></th>
             </tr>
@@ -84,8 +87,9 @@
         <tbody>
                   <% allPosts.forEach(function(p){%>
                 <tr>
-                    <td>                    <%= p.createdAt%>                </td>
-                    <td>             <%= p.company.name%>     </td>
+                    <!-- to by-pass hyven problem in en-us -->
+                    <td> <%= p.company.name%>     </td>
+                    <td> <%= p.embedCode[0]["en-us"] %>                </td>                    
                     <td><img class="companylogo" style="height:130px; width: auto;" src ="<%= p.company.logo %>"> </td>
                     <td>
                         <button id='<%= p.id %>' onclick="handleDeletePost(event)">Delete</button>
@@ -96,6 +100,9 @@
         </tbody>
 
     </table>
+    <!-- <div>
+        <%= JSON.stringify(allPosts) %>
+    </div>  -->
 
     </body>
 </html>
