@@ -11,4 +11,4 @@ module.exports = async function(req, res){
 
 }
 
-{/* <div><%= p.company.name %></div>  */}
+{/* <div><%= p.company.name %></div>  */} 
