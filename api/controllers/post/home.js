@@ -3,7 +3,7 @@
 module.exports = async function(req, res){
     console.log("This route shows home page of posts")
     const userId = req.session.userId
-    const allPosts = await Ad.find().populate('company')
+    const allPosts = await Ad.find().populate('company').sort('createdAt ASC')
     console.log(userId)
     
 

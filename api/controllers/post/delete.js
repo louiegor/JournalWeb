@@ -28,7 +28,7 @@ module.exports = {
     console.log('we are in delete')
     console.log('deleting '+inputs.postId)
 
-    const record = await Post.destroy({id: inputs.postId}).fetch()
+    const record = await Ad.destroy({id: inputs.postId}).fetch()
     if (record.length == 0){
       throw ({invalid:{error: 'Record does not exist'}})
     }

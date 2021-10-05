@@ -7,9 +7,42 @@
             border-radius:5px;
             border: solid 1px rgb(199,189,199);
         }
+
+        textarea {
+          white-space: pre;
+          overflow-wrap: normal;
+          overflow-x: scroll;
+        }
+
+        label{
+            display:inline-block;
+            width:200px;
+            margin-right:30px;
+            text-align:right;
+        }
+
+        .right {
+            /* position: absolute; */
+            right: 0px;
+            /* width: 300px;
+            border: 3px solid #73AD21; */
+            padding: 10px;
+        }
+
+
+
+        /* fieldset{
+            border:none;
+            width:500px;
+            margin:0px auto;
+        } */
+
+
     </style>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script language="JavaScript"  src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.5.2/bootbox.min.js"></script>
 
     <script>
         async function handleDeletePost(e){
@@ -29,6 +62,36 @@
 
         };
 
+
+        
+
+        $(document).ready(function(){
+            $("#createB").click(function(){
+                bootbox.dialog({
+            message: '<form class="post-container" action="/post" method="POST">'+                    
+            '<div class="form-group"><label>Embed Code</label><input name="embedCode" rows="7" cols="20" wrap="soft" style="height:150px; width: 400px;" type="textarea" placeholder="Embed Code"></div>'+
+            '<div class="form-group"><label>Company</label><input name="company" type="text" placeholder="Abc Company"><tr></div>'+
+            '<div class="form-group"><label>Title</label><input name="title" type="text" placeholder="Title"></div>'+
+
+            '<button class="right" type="submit">Submit</button>'+
+
+            '</form>',
+            title: "Create New",
+            size: "large"
+            
+        });
+                // bootbox.alert("This is the default alert!");
+            });
+             if (jQuery) {  
+               // jQuery is loaded  
+               console.log("jquery!");
+             } else {
+               // jQuery is not loaded
+               console.log("Doesn't Work");
+             }
+          });
+
+
         async function temp(){
 
             console.log(allPosts)
@@ -36,19 +99,18 @@
         }
     </script>
 
-    <body >        <!-- style='background-color: lightgrey;' -->
+    <body >        <!-- style='background-color: lightgrey;' -->       
 
-        <form class="post-container" action="/post" method="POST">
+        <!-- <form class="post-container" action="/post" method="POST">
             <div> Create New Company</div>
-            <!-- <input name="title" type="text" placeholder="Post Title">
-            <input name="postBody" type="text" placeholder="Post Body"> -->
+
             <input name="embedCode" type="text" placeholder="Embed Code">
             <input name="company" type="text" placeholder="Company">
             <input name="title" type="text" placeholder="Title">
 
             <button type="submit">Submit</button>
 
-        </form>
+        </form> -->
         
 
         <!-- <div>
@@ -72,8 +134,13 @@
         <div>
             <%= JSON.stringify(allPosts) %>
         </div> -->
+    
 
-    <h1 class="display-4">Ad</h1>
+        <!-- <div ><button id="createB" class="createB right" name="create new">Create new </button></div> -->
+        <h1 class="display-4">Ad</h1>
+        <span><a id="createB" href="#">Create new Ad</a></span>
+
+    
 
     <table class="table table-striped">
         <thead>
